@@ -7,21 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Views\Account\**" />
-    <Compile Remove="Views\Cart\**" />
-    <Compile Remove="Views\Checkout\**" />
-    <Content Remove="Views\Account\**" />
-    <Content Remove="Views\Cart\**" />
-    <Content Remove="Views\Checkout\**" />
-    <EmbeddedResource Remove="Views\Account\**" />
-    <EmbeddedResource Remove="Views\Cart\**" />
-    <EmbeddedResource Remove="Views\Checkout\**" />
-    <None Remove="Views\Account\**" />
-    <None Remove="Views\Cart\**" />
-    <None Remove="Views\Checkout\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Remove="Views\Shared\_ProductDetailLayout.cshtml" />
   </ItemGroup>
 
@@ -37,7 +22,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.3" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
