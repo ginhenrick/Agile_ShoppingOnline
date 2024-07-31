@@ -1,0 +1,41 @@
+﻿@using ShoppingOnline.Models.ViewModels
+@model List<CategoryProductsViewModel>
+
+@foreach (var categoryViewModel in Model)
+{
+    <section class="category-section">
+        <h2 class="title text-center">@categoryViewModel.Category.Name</h2>
+        <div class="row">
+            @for (int i = 0; i < 4 && i < categoryViewModel.Products.Count; i++)
+            {
+                var product = categoryViewModel.Products[i];
+
+                <div class="col-sm-3 product-card">
+                    <div class="product-image">
+                        <a asp-controller="Product" asp-action="Details" asp-route-Id="@product.Id">
+                            <img src="~/images/products/@product.Image" alt="@product.Name" class="product-image" />
+                        </a>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">@product.Name</h3>
+                        <div class="product-price">
+                            <span class="price" style="font-size: 20px; font-weight: bold; color: #FFA500;">$@product.Price.ToString("N2")</span>
+                            @if (product.DiscountPrice.HasValue)
+                            {
+                                <span class="original-price text-muted"><del>$@product.DiscountPrice.Value.ToString("N2")</del></span>
+                                <span class="discount-percentage">-@product.DiscountPercentage%</span>
+                            }
+                        </div>
+                        <div class="action-button">
+                            <a asp-controller="Product" asp-action="Details" asp-route-Id="@product.Id" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            <a asp-controller="" asp-action="" asp-route-Id="@product.Id" class="btn btn-default add-to-cart"><i class="fa-solid fa-balance-scale"></i>Compare</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="text-center see-all-button">    
+            <a asp-controller="Category" asp-action="Index" asp-route-Slug="@categoryViewModel.Category.Slug" class="btn btn-primary" style="border-radius: 25px; padding: 15px 25px;">See all @categoryViewModel.Category.Name</a>
+        </div>
+    </section>
+}
